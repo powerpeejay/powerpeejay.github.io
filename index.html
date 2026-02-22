@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peter Jacob — Digital Product Leader</title>
+  <meta name="description" content="Peter Jacob is a Digital Product Leader with 15+ years of experience in E-Commerce, Gaming, and Travel Tech. Passionate about AI, innovation, and building products that matter.">
+  <meta name="keywords" content="Peter Jacob, Product Leader, Digital Product Management, AI, Hamburg, E-Commerce, Product Strategy">
+  <meta name="author" content="Peter Jacob">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Peter Jacob — Digital Product Leader">
+  <meta property="og:description" content="15+ years building digital products across gaming, fintech, travel tech & commerce. AI + Human = Boost.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/images/profile.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/parallax.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Peter Jacob",
+    "jobTitle": "Digital Product Leader",
+    "url": "https://de.linkedin.com/in/peterjacob/en",
+    "sameAs": ["https://de.linkedin.com/in/peterjacob/en"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hamburg",
+      "addressCountry": "DE"
+    },
+    "knowsAbout": ["Digital Product Management", "AI", "E-Commerce", "Agile", "NLP", "Design Thinking"]
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip to content -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Navigation -->
+  <nav class="main-nav" id="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">PJ</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li>
+          <a href="https://de.linkedin.com/in/peterjacob/en" target="_blank" rel="noopener noreferrer" class="nav-link nav-link--linkedin" aria-label="LinkedIn Profile">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- ==================== HERO ==================== -->
+    <section id="hero" class="hero">
+      <canvas id="nodeNetwork" class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="parallax-layer parallax-layer--bg" data-speed="0.15" aria-hidden="true"></div>
+      <div class="parallax-layer parallax-layer--mid" data-speed="0.35" aria-hidden="true">
+        <div class="floating-shape floating-shape--1"></div>
+        <div class="floating-shape floating-shape--2"></div>
+        <div class="floating-shape floating-shape--3"></div>
+        <div class="floating-shape floating-shape--4"></div>
+        <div class="floating-shape floating-shape--5"></div>
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-name">Peter Jacob</h1>
+        <p class="hero-title">Digital Product Leader</p>
+        <div class="hero-typed">
+          <span id="typedText" class="typed-text"></span><span class="typed-cursor">|</span>
+        </div>
+        <a href="#about" class="hero-cta" aria-label="Explore my journey">
+          Explore My Journey
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 5v14M19 12l-7 7-7-7"/>
+          </svg>
+        </a>
+      </div>
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-indicator-dot"></div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="section section--light">
+      <div class="container">
+        <h2 class="section-heading reveal" data-reveal="fade-up">
+          <span class="section-heading-accent"></span>
+          About Me
+        </h2>
+        <div class="about-grid">
+          <div class="about-photo reveal" data-reveal="fade-right">
+            <div class="about-photo-frame">
+              <img src="./assets/images/profile.jpg" alt="Peter Jacob — Digital Product Leader" class="about-photo-img" loading="lazy">
+            </div>
+          </div>
+          <div class="about-text reveal" data-reveal="fade-left">
+            <p>I'm a Digital Product Leader with over 15 years of experience spanning gaming, fintech, travel tech, and digital commerce. My career has taken me from building Facebook games at Innogames, through pioneering mobile payments at Yapital (OTTO Group), to driving digital transformation at AIDA Cruises — where I discovered the power of NLP and AI for customer insights. Today, I lead digital product development at Gebr. Heinemann, steering everything from webshops and apps to CRM and personalization with Salesforce.</p>
+            <p>What drives me is the intersection of strategy and innovation. I love turning complex challenges into elegant digital solutions, building empowered teams, and staying ahead of what's next in tech. Currently, I'm deeply exploring AI Agents and Automation — because I believe the best products come from combining human creativity with AI capabilities.</p>
+            <p class="about-text-casual">When I'm not building products, you'll find me on the padel court, traveling, or diving into the latest AI developments.</p>
+          </div>
+        </div>
+
+        <!-- Peter in a Nutshell -->
+        <div class="nutshell">
+          <h3 class="nutshell-title reveal" data-reveal="fade-up">Peter in a Nutshell</h3>
+          <div class="nutshell-grid reveal" data-reveal="stagger">
+            <div class="hex-card" data-tooltip="Decisions backed by data, always. From KPI frameworks to NLP-powered customer insights.">
+              <div class="hex-card-inner">
+                <svg class="hex-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M3 3v18h18"/>
+                  <path d="M7 16l4-8 4 4 4-6"/>
+                </svg>
+                <span class="hex-card-label">Data-Driven</span>
+              </div>
+            </div>
+            <div class="hex-card" data-tooltip="Constantly scouting trends and turning new technologies into tangible business value.">
+              <div class="hex-card-inner">
+                <svg class="hex-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M9 18h6M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1h-6a1 1 0 01-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/>
+                </svg>
+                <span class="hex-card-label">Innovator</span>
+              </div>
+            </div>
+            <div class="hex-card" data-tooltip="Products built for people. Design thinking practitioner with a passion for great UX.">
+              <div class="hex-card-inner">
+                <svg class="hex-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                </svg>
+                <span class="hex-card-label">User-Centered</span>
+              </div>
+            </div>
+            <div class="hex-card" data-tooltip="Translating vision into roadmaps. Aligning stakeholders around clear product direction.">
+              <div class="hex-card-inner">
+                <svg class="hex-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+                <span class="hex-card-label">Product Strategy</span>
+              </div>
+            </div>
+            <div class="hex-card" data-tooltip="Building bridges across teams, departments, and international boundaries.">
+              <div class="hex-card-inner">
+                <svg class="hex-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span class="hex-card-label">Stakeholder Mgmt</span>
+              </div>
+            </div>
+            <div class="hex-card" data-tooltip="Breaking down complexity. Finding elegant solutions to hard challenges.">
+              <div class="hex-card-inner">
+                <svg class="hex-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+                </svg>
+                <span class="hex-card-label">Problem Solver</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE ==================== -->
+    <section id="experience" class="section section--dark">
+      <div class="container">
+        <h2 class="section-heading section-heading--light reveal" data-reveal="fade-up">
+          <span class="section-heading-accent"></span>
+          Experience
+        </h2>
+        <div class="timeline">
+          <!-- Position 1: Gebr. Heinemann -->
+          <div class="timeline-item timeline-item--right reveal" data-reveal="fade-left">
+            <div class="timeline-node"></div>
+            <div class="timeline-card" data-industry="commerce">
+              <div class="timeline-card-header">
+                <h3 class="timeline-card-title">Team Leader Digital Product Development</h3>
+                <p class="timeline-card-company">Gebr. Heinemann SE & Co. KG</p>
+                <p class="timeline-card-dept">Digital Customer Experience</p>
+                <span class="timeline-card-period">Jul 2018 — Present</span>
+              </div>
+              <div class="timeline-card-tags">
+                <span class="tag tag--commerce">Digital Commerce</span>
+                <span class="tag tag--commerce">AI Enablement</span>
+                <span class="tag tag--commerce">Team Leadership</span>
+                <span class="tag tag--commerce">Innovation</span>
+              </div>
+              <ul class="timeline-card-achievements">
+                <li>Leading 9 direct reports including Product Owners, Design Team, and Project Managers for international rollouts</li>
+                <li>Strategy, planning, and execution of the full digital product portfolio (Webshop, App, CRM & Personalization — incl. Salesforce Cloud introduction)</li>
+                <li>Innovation management and trend scouting for business development</li>
+                <li>Design- and data-driven product development</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Position 2: AIDA Cruises -->
+          <div class="timeline-item timeline-item--left reveal" data-reveal="fade-right">
+            <div class="timeline-node"></div>
+            <div class="timeline-card" data-industry="travel">
+              <div class="timeline-card-header">
+                <h3 class="timeline-card-title">Product Lead</h3>
+                <p class="timeline-card-company">AIDA Cruises</p>
+                <p class="timeline-card-dept">Digital Unit</p>
+                <span class="timeline-card-period">Sep 2015 — Jun 2018</span>
+              </div>
+              <div class="timeline-card-tags">
+                <span class="tag tag--travel">AI / NLP</span>
+                <span class="tag tag--travel">Digital Transformation</span>
+                <span class="tag tag--travel">E-Commerce</span>
+              </div>
+              <ul class="timeline-card-achievements">
+                <li>Driving digital transformation across the organization</li>
+                <li>Pioneered AI-powered customer insights using NLP open-source library spaCy</li>
+                <li>Built Compare-Price-Quote tool: automated complex quote creation from 50 min to 5 min (10x improvement)</li>
+                <li>Introduced customer-centric product development methodology</li>
+                <li>Complete redesign and rebuild of the e-commerce website</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Position 3: Yapital -->
+          <div class="timeline-item timeline-item--right reveal" data-reveal="fade-left">
+            <div class="timeline-node"></div>
+            <div class="timeline-card" data-industry="fintech">
+              <div class="timeline-card-header">
+                <h3 class="timeline-card-title">Senior Product Owner</h3>
+                <p class="timeline-card-company">Yapital (OTTO Group)</p>
+                <p class="timeline-card-dept">Product Management Team</p>
+                <span class="timeline-card-period">Dec 2013 — Aug 2015</span>
+              </div>
+              <div class="timeline-card-tags">
+                <span class="tag tag--fintech">FinTech</span>
+                <span class="tag tag--fintech">PCI-DSS</span>
+                <span class="tag tag--fintech">B2B</span>
+                <span class="tag tag--fintech">International</span>
+              </div>
+              <ul class="timeline-card-achievements">
+                <li>Optimized customer onboarding under strict PCI-DSS compliance in a banking environment</li>
+                <li>Developed B2B Reseller product from scratch for business customers</li>
+                <li>Managed international nearshore development teams</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Position 4: Innogames Senior -->
+          <div class="timeline-item timeline-item--left reveal" data-reveal="fade-right">
+            <div class="timeline-node"></div>
+            <div class="timeline-card" data-industry="gaming">
+              <div class="timeline-card-header">
+                <h3 class="timeline-card-title">Senior Product Manager</h3>
+                <p class="timeline-card-company">Innogames GmbH</p>
+                <p class="timeline-card-dept">Product Management Games</p>
+                <span class="timeline-card-period">Aug 2012 — Nov 2013</span>
+              </div>
+              <div class="timeline-card-tags">
+                <span class="tag tag--gaming">Gaming</span>
+                <span class="tag tag--gaming">UX</span>
+                <span class="tag tag--gaming">Pricing</span>
+                <span class="tag tag--gaming">Internationalization</span>
+              </div>
+              <ul class="timeline-card-achievements">
+                <li>Lateral leadership and full product ownership for a game title</li>
+                <li>Internationalization and localization across 20 markets</li>
+                <li>Pricing optimization project with Simon Kucher & Partners</li>
+                <li>UX and game concept development driving +20% revenue increase</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Position 5: Innogames PM -->
+          <div class="timeline-item timeline-item--right reveal" data-reveal="fade-left">
+            <div class="timeline-node"></div>
+            <div class="timeline-card" data-industry="gaming">
+              <div class="timeline-card-header">
+                <h3 class="timeline-card-title">Product Manager</h3>
+                <p class="timeline-card-company">Innogames GmbH</p>
+                <p class="timeline-card-dept">Product Management Games</p>
+                <span class="timeline-card-period">Apr 2010 — Jul 2012</span>
+              </div>
+              <div class="timeline-card-tags">
+                <span class="tag tag--gaming">Facebook Games</span>
+                <span class="tag tag--gaming">Agile</span>
+                <span class="tag tag--gaming">Data-Driven</span>
+              </div>
+              <ul class="timeline-card-achievements">
+                <li>End-to-end product ownership for a Facebook game title</li>
+                <li>Introduced agile software development as a lighthouse project</li>
+                <li>Team building and establishing a data-driven working culture</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS ==================== -->
+    <section id="skills" class="section section--light">
+      <div class="container">
+        <h2 class="section-heading reveal" data-reveal="fade-up">
+          <span class="section-heading-accent"></span>
+          Skills & Expertise
+        </h2>
+
+        <!-- Radar Chart -->
+        <div class="radar-wrapper reveal" data-reveal="scale-in">
+          <canvas id="radarChart" class="radar-canvas" aria-label="Core competency radar chart showing Product Strategy, Data-Driven, User-Centered, Innovation, Stakeholder Management, and Problem Solving"></canvas>
+        </div>
+
+        <!-- Skill Categories -->
+        <div class="skills-grid">
+          <!-- Leadership -->
+          <div class="skill-category reveal" data-reveal="fade-up">
+            <h3 class="skill-category-title">Leadership & Management</h3>
+            <div class="skill-cards">
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="95"/>
+                </svg>
+                <span class="skill-card-name">Digital Product Management</span>
+              </div>
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="90"/>
+                </svg>
+                <span class="skill-card-name">Agile Project Management</span>
+              </div>
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="90"/>
+                </svg>
+                <span class="skill-card-name">Team Building & Leadership</span>
+              </div>
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="90"/>
+                </svg>
+                <span class="skill-card-name">Stakeholder Management</span>
+              </div>
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="85"/>
+                </svg>
+                <span class="skill-card-name">Process Digitization</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Methodologies -->
+          <div class="skill-category reveal" data-reveal="fade-up">
+            <h3 class="skill-category-title">Methodologies & Frameworks</h3>
+            <div class="skill-cards">
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="95"/>
+                </svg>
+                <span class="skill-card-name">Scrum (CSM & CSPO)</span>
+              </div>
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="85"/>
+                </svg>
+                <span class="skill-card-name">Design Thinking (HPI)</span>
+              </div>
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="75"/>
+                </svg>
+                <span class="skill-card-name">PRINCE2</span>
+              </div>
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="90"/>
+                </svg>
+                <span class="skill-card-name">Data-Driven Development</span>
+              </div>
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="90"/>
+                </svg>
+                <span class="skill-card-name">Customer-Centric PD</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical -->
+          <div class="skill-category reveal" data-reveal="fade-up">
+            <h3 class="skill-category-title">Technical & Domain</h3>
+            <div class="skill-cards">
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="90"/>
+                </svg>
+                <span class="skill-card-name">E-Commerce & Digital Commerce</span>
+              </div>
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="80"/>
+                </svg>
+                <span class="skill-card-name">Salesforce Cloud Suite</span>
+              </div>
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="75"/>
+                </svg>
+                <span class="skill-card-name">Web & App Development</span>
+              </div>
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="70"/>
+                </svg>
+                <span class="skill-card-name">AI / NLP Applications</span>
+              </div>
+              <div class="skill-card">
+                <svg class="skill-ring" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="skill-ring-bg" cx="50" cy="50" r="42"/>
+                  <circle class="skill-ring-fill" cx="50" cy="50" r="42" data-percent="85"/>
+                </svg>
+                <span class="skill-card-name">Internationalization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EDUCATION ==================== -->
+    <section id="education" class="section section--dark">
+      <div class="container">
+        <h2 class="section-heading section-heading--light reveal" data-reveal="fade-up">
+          <span class="section-heading-accent"></span>
+          Education & Certifications
+        </h2>
+        <div class="edu-grid">
+          <!-- Education Timeline -->
+          <div class="edu-timeline">
+            <h3 class="edu-subtitle reveal" data-reveal="fade-up">Education</h3>
+
+            <div class="edu-item reveal" data-reveal="fade-right">
+              <div class="edu-item-dot"></div>
+              <div class="edu-item-content">
+                <h4 class="edu-item-degree">Diploma in Business Education</h4>
+                <p class="edu-item-school">Georg-August-Universit&auml;t G&ouml;ttingen</p>
+                <span class="edu-item-period">Oct 2003 — Jul 2008</span>
+                <p class="edu-item-desc">Focus: Business Pedagogy, Retail Management, Corporate Leadership & Economics</p>
+              </div>
+            </div>
+
+            <div class="edu-item reveal" data-reveal="fade-right">
+              <div class="edu-item-dot"></div>
+              <div class="edu-item-content">
+                <h4 class="edu-item-degree">Teaching Practicum (Referendariat)</h4>
+                <p class="edu-item-school">Berufsbildende Schule 11, Hannover</p>
+                <span class="edu-item-period">May 2009 — Feb 2010</span>
+              </div>
+            </div>
+
+            <div class="edu-item reveal" data-reveal="fade-right">
+              <div class="edu-item-dot"></div>
+              <div class="edu-item-content">
+                <h4 class="edu-item-degree">Work & Travel</h4>
+                <p class="edu-item-school">Australia</p>
+                <span class="edu-item-period">Aug 2008 — Apr 2009</span>
+              </div>
+            </div>
+
+            <div class="edu-item reveal" data-reveal="fade-right">
+              <div class="edu-item-dot"></div>
+              <div class="edu-item-content">
+                <h4 class="edu-item-degree">IT & Telecommunications Specialist</h4>
+                <p class="edu-item-school">Vocational Training</p>
+                <span class="edu-item-period">Sep 2000 — Jan 2003</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications & Languages -->
+          <div class="edu-right">
+            <h3 class="edu-subtitle reveal" data-reveal="fade-up">Certifications</h3>
+            <div class="cert-grid reveal" data-reveal="stagger">
+              <div class="cert-badge">
+                <div class="cert-badge-hex">
+                  <svg class="cert-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M9 18h6M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1h-6a1 1 0 01-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/>
+                  </svg>
+                </div>
+                <span class="cert-badge-name">Design Thinking</span>
+                <span class="cert-badge-issuer">HPI — 2018</span>
+              </div>
+              <div class="cert-badge">
+                <div class="cert-badge-hex">
+                  <svg class="cert-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M3 3v18h18"/>
+                    <path d="M7 16l4-8 4 4 4-6"/>
+                  </svg>
+                </div>
+                <span class="cert-badge-name">PRINCE2 Foundation</span>
+                <span class="cert-badge-issuer">2014</span>
+              </div>
+              <div class="cert-badge">
+                <div class="cert-badge-hex">
+                  <svg class="cert-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M8 12l3 3 5-5"/>
+                  </svg>
+                </div>
+                <span class="cert-badge-name">Certified Scrum Master</span>
+                <span class="cert-badge-issuer">Scrum Alliance — 2011</span>
+              </div>
+              <div class="cert-badge">
+                <div class="cert-badge-hex">
+                  <svg class="cert-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M7 7h4v4H7zM13 7h4M13 11h4M7 15h10"/>
+                  </svg>
+                </div>
+                <span class="cert-badge-name">Certified Scrum Product Owner</span>
+                <span class="cert-badge-issuer">Scrum Alliance — 2011</span>
+              </div>
+            </div>
+
+            <h3 class="edu-subtitle edu-subtitle--mt reveal" data-reveal="fade-up">Languages</h3>
+            <div class="languages reveal" data-reveal="stagger">
+              <div class="lang-item">
+                <div class="lang-info">
+                  <span class="lang-name">German</span>
+                  <span class="lang-level">Native</span>
+                </div>
+                <div class="lang-bar">
+                  <div class="lang-bar-fill" data-percent="100"></div>
+                </div>
+              </div>
+              <div class="lang-item">
+                <div class="lang-info">
+                  <span class="lang-name">English</span>
+                  <span class="lang-level">Fluent</span>
+                </div>
+                <div class="lang-bar">
+                  <div class="lang-bar-fill" data-percent="90"></div>
+                </div>
+              </div>
+              <div class="lang-item">
+                <div class="lang-info">
+                  <span class="lang-name">French</span>
+                  <span class="lang-level">Basic</span>
+                </div>
+                <div class="lang-bar">
+                  <div class="lang-bar-fill" data-percent="25"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="section section--gradient">
+      <div class="container container--narrow">
+        <h2 class="section-heading section-heading--light reveal" data-reveal="fade-up">
+          <span class="section-heading-accent"></span>
+          Let's Connect
+        </h2>
+        <p class="contact-sub reveal" data-reveal="fade-up">
+          Always open to discussing product innovation, AI agents, or a game of padel.
+        </p>
+        <div class="contact-links reveal" data-reveal="stagger">
+          <a href="https://de.linkedin.com/in/peterjacob/en" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <svg class="contact-link-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <span class="contact-link-text">LinkedIn</span>
+          </a>
+          <a href="mailto:peter-jacob@web.de" class="contact-link">
+            <svg class="contact-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M22 7l-10 7L2 7"/>
+            </svg>
+            <span class="contact-link-text">peter-jacob@web.de</span>
+          </a>
+          <div class="contact-link contact-link--static">
+            <svg class="contact-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span class="contact-link-text">Hamburg, Germany</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">Built with curiosity and code. &copy; 2026 Peter Jacob.</p>
+      <a href="#hero" class="footer-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./js/parallax.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/linkedin.js"></script>
+</body>
+</html>

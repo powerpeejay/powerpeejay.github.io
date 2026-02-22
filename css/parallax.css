@@ -1,0 +1,56 @@
+/* ================================================
+   PARALLAX STYLES
+   ================================================ */
+
+/* Parallax layers */
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.parallax-layer--bg {
+  z-index: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(0, 229, 200, 0.03) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 20%, rgba(245, 166, 35, 0.02) 0%, transparent 40%),
+              radial-gradient(ellipse at 50% 80%, rgba(0, 229, 200, 0.02) 0%, transparent 50%);
+}
+
+.parallax-layer--mid {
+  z-index: 2;
+}
+
+/* Active parallax — promoted to own layer */
+.parallax-active {
+  will-change: transform;
+}
+
+/* ================================================
+   MOBILE: Disable parallax transforms
+   ================================================ */
+@media (max-width: 768px), (hover: none) {
+  .parallax-layer {
+    transform: none !important;
+  }
+  .parallax-active {
+    will-change: auto;
+  }
+  .floating-shape {
+    opacity: 0.5;
+  }
+}
+
+/* ================================================
+   REDUCED MOTION: Disable all parallax
+   ================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-layer {
+    transform: none !important;
+  }
+  .parallax-active {
+    will-change: auto;
+  }
+}

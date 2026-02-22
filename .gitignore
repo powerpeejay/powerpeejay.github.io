@@ -1,0 +1,19 @@
+# Keep private documents local only
+documents/
+*.pdf
+*.docx
+*.doc
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+
+# Claude
+.claude/

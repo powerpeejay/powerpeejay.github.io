@@ -1,0 +1,184 @@
+{
+  "personal": {
+    "name": "Peter Jacob",
+    "title": "Digital Product Leader",
+    "taglines": [
+      "AI + Human = Boost",
+      "15+ years building digital products across 4 industries",
+      "Currently diving deep into AI Agents & Automation with n8n",
+      "From gaming worlds to global commerce"
+    ],
+    "email": "peter-jacob@web.de",
+    "phone": "+49 176 20135776",
+    "location": "Hamburg, Germany",
+    "photo": "./assets/images/profile.jpg",
+    "linkedin": "https://de.linkedin.com/in/peterjacob/en",
+    "born": "1979"
+  },
+  "about": {
+    "bio": "I'm a Digital Product Leader with over 14 years of experience spanning gaming, fintech, travel tech, and digital commerce. My career has taken me from building Facebook games at Innogames, through pioneering mobile payments at Yapital (OTTO Group), to driving digital transformation at AIDA Cruises — where I discovered the power of NLP and AI for customer insights. Today, I lead digital product development at Gebr. Heinemann, steering everything from webshops and apps to CRM and personalization with Salesforce.",
+    "bio2": "What drives me is the intersection of strategy and innovation. I love turning complex challenges into elegant digital solutions, building empowered teams, and staying ahead of what's next in tech. Currently, I'm deeply exploring AI Agents and Automation — because I believe the best products come from combining human creativity with AI capabilities.",
+    "bio3": "When I'm not building products, you'll find me on the padel court, traveling, or diving into the latest AI developments.",
+    "highlights": [
+      {
+        "label": "Data-Driven",
+        "icon": "chart",
+        "description": "Decisions backed by data, always. From KPI frameworks to NLP-powered customer insights."
+      },
+      {
+        "label": "Innovator",
+        "icon": "lightbulb",
+        "description": "Constantly scouting trends and turning new technologies into tangible business value."
+      },
+      {
+        "label": "User-Centered",
+        "icon": "users",
+        "description": "Products built for people. Design thinking practitioner with a passion for great UX."
+      },
+      {
+        "label": "Product Strategy",
+        "icon": "target",
+        "description": "Translating vision into roadmaps. Aligning stakeholders around clear product direction."
+      },
+      {
+        "label": "Stakeholder Mgmt",
+        "icon": "handshake",
+        "description": "Building bridges across teams, departments, and international boundaries."
+      },
+      {
+        "label": "Problem Solver",
+        "icon": "puzzle",
+        "description": "Breaking down complexity. Finding elegant solutions to hard challenges."
+      }
+    ]
+  },
+  "experience": [
+    {
+      "title": "Team Leader Digital Product Development",
+      "company": "Gebr. Heinemann SE & Co. KG",
+      "department": "Digital Customer Experience",
+      "period": "Jul 2018 — Present",
+      "industry": "commerce",
+      "achievements": [
+        "Leading 9 direct reports including Product Owners, Design Team, and Project Managers for international rollouts",
+        "Strategy, planning, and execution of the full digital product portfolio in Digital Commerce (Webshop, App, CRM & Personalization — incl. Salesforce Cloud introduction)",
+        "Innovation management and trend scouting for business development",
+        "Design- and data-driven product development"
+      ]
+    },
+    {
+      "title": "Product Lead",
+      "company": "AIDA Cruises",
+      "department": "Digital Unit",
+      "period": "Sep 2015 — Jun 2018",
+      "industry": "travel",
+      "achievements": [
+        "Driving digital transformation across the organization",
+        "Pioneered AI-powered customer insights using NLP open-source library spaCy",
+        "Built Compare-Price-Quote tool: automated complex quote creation from 50 min to 5 min (10x improvement)",
+        "Introduced customer-centric product development methodology",
+        "Complete redesign and rebuild of the e-commerce website"
+      ]
+    },
+    {
+      "title": "Senior Product Owner",
+      "company": "Yapital (OTTO Group)",
+      "department": "Product Management Team",
+      "period": "Dec 2013 — Aug 2015",
+      "industry": "fintech",
+      "achievements": [
+        "Optimized customer onboarding under strict PCI-DSS compliance in a banking environment",
+        "Developed B2B Reseller product from scratch for business customers",
+        "Managed international nearshore development teams"
+      ]
+    },
+    {
+      "title": "Senior Product Manager",
+      "company": "Innogames GmbH",
+      "department": "Product Management Games",
+      "period": "Aug 2012 — Nov 2013",
+      "industry": "gaming",
+      "achievements": [
+        "Lateral leadership and full product ownership for a game title",
+        "Internationalization and localization across 20 markets",
+        "Pricing optimization project with Simon Kucher & Partners",
+        "UX and game concept development driving +20% revenue increase"
+      ]
+    },
+    {
+      "title": "Product Manager",
+      "company": "Innogames GmbH",
+      "department": "Product Management Games",
+      "period": "Apr 2010 — Jul 2012",
+      "industry": "gaming",
+      "achievements": [
+        "End-to-end product ownership for a Facebook game title",
+        "Introduced agile software development as a lighthouse project",
+        "Team building and establishing a data-driven working culture"
+      ]
+    }
+  ],
+  "skills": {
+    "leadership": [
+      { "name": "Digital Product Management", "level": 95 },
+      { "name": "Agile Project Management", "level": 90 },
+      { "name": "Team Building & Leadership", "level": 90 },
+      { "name": "Stakeholder Management", "level": 90 },
+      { "name": "Process Digitization", "level": 85 }
+    ],
+    "methodologies": [
+      { "name": "Scrum (CSM & CSPO)", "level": 95 },
+      { "name": "Design Thinking (HPI)", "level": 85 },
+      { "name": "PRINCE2", "level": 75 },
+      { "name": "Data-Driven Development", "level": 90 },
+      { "name": "Customer-Centric PD", "level": 90 }
+    ],
+    "technical": [
+      { "name": "E-Commerce & Digital Commerce", "level": 90 },
+      { "name": "Salesforce Cloud Suite", "level": 80 },
+      { "name": "Web & App Development", "level": 75 },
+      { "name": "AI / NLP Applications", "level": 70 },
+      { "name": "Internationalization", "level": 85 }
+    ]
+  },
+  "radarData": {
+    "labels": ["Product Strategy", "Data-Driven", "User-Centered", "Innovation", "Stakeholder Mgmt", "Problem Solving"],
+    "values": [95, 90, 90, 95, 90, 90]
+  },
+  "education": [
+    {
+      "degree": "Teaching Practicum (Referendariat)",
+      "institution": "Berufsbildende Schule 11, Hannover",
+      "period": "May 2009 — Feb 2010"
+    },
+    {
+      "degree": "Work & Travel",
+      "institution": "Australia",
+      "period": "Aug 2008 — Apr 2009"
+    },
+    {
+      "degree": "Diploma in Business Education (Diplom-Handelslehrer)",
+      "institution": "Georg-August-Universität Göttingen",
+      "period": "Oct 2003 — Jul 2008",
+      "description": "Focus: Business Pedagogy, Retail Management, Corporate Leadership & Economics"
+    },
+    {
+      "degree": "IT & Telecommunications Specialist (Vocational Training)",
+      "institution": "Informations- und Telekommunikationskaufmann",
+      "period": "Sep 2000 — Jan 2003"
+    }
+  ],
+  "certifications": [
+    { "name": "Design Thinking", "issuer": "HPI", "year": "2018" },
+    { "name": "PRINCE2 Foundation", "issuer": "AXELOS", "year": "2014" },
+    { "name": "Leadership Training", "issuer": "Professional Development", "year": "2013" },
+    { "name": "Certified Scrum Master", "issuer": "Scrum Alliance", "year": "2011" },
+    { "name": "Certified Scrum Product Owner", "issuer": "Scrum Alliance", "year": "2011" }
+  ],
+  "languages": [
+    { "name": "German", "level": "Native", "percent": 100 },
+    { "name": "English", "level": "Fluent", "percent": 90 },
+    { "name": "French", "level": "Basic", "percent": 25 }
+  ],
+  "interests": ["Travel", "Innovations", "Padel", "AI & Automation"]
+}
