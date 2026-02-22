@@ -554,3 +554,159 @@
   }
 
 })();
+
+// ================================================
+// AI ENABLEMENT CHECK QUIZ
+// ================================================
+(function () {
+  const TOTAL_STEPS = 6;
+  let answers = [];
+  let currentStep = 0;
+
+  const results = {
+    A: {
+      type: 'Typ A · 0–33 % Potenzial',
+      headline: 'Gut aufgestellt – aber Luft nach oben bleibt.',
+      body: 'Ihre Prozesse laufen bereits solide. Dennoch gibt es oft versteckte Potenziale bei High-End Custom Agents, die Ihre Mitarbeiter von Routineentscheidungen entlasten. Sprechen wir darüber, was möglich ist.',
+      ctaLabel: 'Custom Agents besprechen',
+      ctaSubject: 'Typ A – Custom Agents Gespräch'
+    },
+    B: {
+      type: 'Typ B · 34–67 % Potenzial',
+      headline: 'Solides Fundament – aber Sie verlieren täglich Zeit.',
+      body: 'Sie haben ein gutes Fundament, aber fehlende Schnittstellen und manuelle Schritte fressen wertvolle Kapazität. n8n könnte Ihr Betriebssystem für Effizienz werden und Ihre Tools nahtlos verbinden.',
+      ctaLabel: 'n8n-Strategie-Call anfragen',
+      ctaSubject: 'Typ B – n8n Strategie-Call'
+    },
+    C: {
+      type: 'Typ C · 68–100 % Potenzial',
+      headline: 'Akuter Handlungsbedarf – Ihr Team arbeitet für die Tools.',
+      body: 'Ihre Situation ist klar: Manuelle Prozesse blockieren Wachstum und kosten täglich Geld. AI Agents könnten bis zu 80 % Ihrer Routineaufgaben übernehmen. Lassen Sie uns gemeinsam analysieren, wo der größte Hebel liegt.',
+      ctaLabel: 'Sofort-Analyse anfordern',
+      ctaSubject: 'Typ C – Sofort-Analyse KI-Enablement'
+    }
+  };
+
+  function calcResultType() {
+    const total = answers.reduce(function (sum, v) { return sum + v; }, 0);
+    if (total <= 4) return 'A';
+    if (total <= 8) return 'B';
+    return 'C';
+  }
+
+  function updateProgress(step) {
+    const bar = document.getElementById('quizProgressBar');
+    if (bar) bar.style.width = ((step / TOTAL_STEPS) * 100) + '%';
+  }
+
+  function showStep(index) {
+    document.querySelectorAll('.quiz-step').forEach(function (el) {
+      el.classList.remove('is-active');
+    });
+    const targetId = index < TOTAL_STEPS ? 'quizStep' + index : 'quizResult';
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.classList.add('is-active');
+      updateProgress(index < TOTAL_STEPS ? index : TOTAL_STEPS);
+    }
+  }
+
+  function showResult() {
+    const type = calcResultType();
+    const r = results[type];
+    const resultEl = document.getElementById('quizResult');
+    if (!resultEl) return;
+    resultEl.innerHTML =
+      '<p class="quiz-result-type">' + r.type + '</p>' +
+      '<h3 class="quiz-result-headline">' + r.headline + '</h3>' +
+      '<p class="quiz-result-body">' + r.body + '</p>' +
+      '<a href="mailto:peter-jacob@web.de?subject=' + encodeURIComponent(r.ctaSubject) + '" class="quiz-result-cta">' +
+        r.ctaLabel +
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
+      '</a>' +
+      '<button class="quiz-result-restart" id="quizRestart" type="button">Nochmal starten</button>';
+    showStep(TOTAL_STEPS);
+    const restartBtn = document.getElementById('quizRestart');
+    if (restartBtn) {
+      restartBtn.addEventListener('click', function () {
+        resetQuiz();
+        showStep(0);
+      });
+    }
+  }
+
+  function resetQuiz() {
+    answers = [];
+    currentStep = 0;
+    document.querySelectorAll('.quiz-option').forEach(function (btn) {
+      btn.classList.remove('is-selected');
+    });
+    updateProgress(0);
+  }
+
+  function openModal() {
+    const modal = document.getElementById('quizModal');
+    if (!modal) return;
+    resetQuiz();
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    showStep(0);
+    const trigger = document.getElementById('quizTrigger');
+    if (trigger) trigger.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('quizModal');
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    const trigger = document.getElementById('quizTrigger');
+    if (trigger) {
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.focus();
+    }
+  }
+
+  function init() {
+    const trigger = document.getElementById('quizTrigger');
+    const modal = document.getElementById('quizModal');
+    const closeBtn = document.getElementById('quizClose');
+    if (!trigger || !modal) return;
+
+    trigger.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    const backdrop = modal.querySelector('.quiz-modal-backdrop');
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) closeModal();
+    });
+
+    document.querySelectorAll('.quiz-option').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const step = parseInt(btn.dataset.step, 10);
+        const value = parseInt(btn.dataset.value, 10);
+        document.querySelectorAll('.quiz-option[data-step="' + step + '"]').forEach(function (s) {
+          s.classList.remove('is-selected');
+        });
+        btn.classList.add('is-selected');
+        answers[step] = value;
+        currentStep = step + 1;
+        setTimeout(function () {
+          if (currentStep < TOTAL_STEPS) {
+            showStep(currentStep);
+          } else {
+            showResult();
+          }
+        }, 280);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+}());
