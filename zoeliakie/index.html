@@ -103,7 +103,7 @@
        ================================ */
     .hook-wrapper {
       position: relative;
-      height: 250vh;
+      height: 180vh;
     }
 
     .hook {
@@ -187,28 +187,29 @@
       margin: 0 auto;
     }
 
-    .hook h1 .highlight {
+    .highlight {
       color: var(--amber);
       font-style: italic;
     }
 
     .hook-sub {
-      font-size: 1.15rem;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
       color: rgba(254, 250, 246, 0.5);
-      font-weight: 300;
+      font-weight: 400;
       margin-top: 1.5rem;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.02em;
     }
 
     .hook-phase-2 {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
-      margin-top: 2rem;
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      color: rgba(254, 250, 246, 0.35);
-      letter-spacing: 0.05em;
+      margin-top: 1rem;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: rgba(254, 250, 246, 0.5);
+      letter-spacing: -0.02em;
     }
 
     .hook-phase-2.active {
@@ -343,8 +344,8 @@
        ================================ */
     .sticky-quote-wrapper {
       position: relative;
-      height: 300vh;
-      background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 30%, var(--near-black) 60%, var(--near-black) 100%);
+      height: 220vh;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--near-black) 30%, var(--near-black) 100%);
     }
 
     .sticky-quote {
@@ -380,10 +381,7 @@
       pointer-events: none;
     }
 
-    .quote-phase.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+    /* opacity + pointer-events now controlled via JS for smooth crossfade */
 
     .quote-phase h2 {
       font-family: var(--font-display);
@@ -392,17 +390,14 @@
     }
 
     .quote-phase-1 h2 {
-      color: var(--near-black);
+      color: var(--warm-white);
     }
 
     .quote-phase-2 h2 {
       color: var(--warm-white);
     }
 
-    .quote-phase-2 h2 .highlight {
-      color: var(--amber);
-      font-style: italic;
-    }
+    /* .highlight is now global */
 
     .quote-phase-3 {
       color: rgba(254, 250, 246, 0.5);
@@ -638,6 +633,7 @@
       .scroll-hint { animation: none; }
       .hook-bg-glow, .hook-bg-ring { transition: none; }
       .quote-phase { transition: none; }
+      .phase3-line, .phase3-sub { opacity: 1; transform: none; transition: none; }
     }
 
     /* --- iPhone SE / small phones (≤375px) --- */
@@ -690,7 +686,7 @@
       .share-buttons { gap: 0.6rem; }
       .layer-2-intro { font-size: 0.95rem; }
       .hook-phase-2 { font-size: 0.8rem; }
-      .sticky-quote-wrapper { height: 250vh; }
+      .sticky-quote-wrapper { height: 180vh; }
       .quote-phase { padding: 0 1.25rem; }
       footer { padding: 2rem 1.25rem calc(1.5rem + var(--safe-bottom)); }
     }
@@ -722,10 +718,43 @@
       .layer-1 { padding: 8rem 4rem; }
     }
 
+    /* ================================
+       PHASE 3: STAGGERED LINES
+       ================================ */
+    .phase3-line {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 4vw, 2.4rem);
+      color: var(--warm-white);
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .phase3-line.visible { opacity: 1; transform: translateY(0); }
+    .phase3-line-2 { transition-delay: 0.3s; }
+    .phase3-line-3 { transition-delay: 0.6s; }
+
+    .phase3-sub {
+      margin-top: 1.25rem;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      color: rgba(254, 250, 246, 0.45);
+      font-weight: 400;
+      font-family: var(--font-display);
+      opacity: 0;
+      transition: opacity 0.5s ease 0.9s;
+    }
+    .phase3-sub.visible { opacity: 1; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .phase3-line, .phase3-sub { transition: none; }
+      .phase3-line { transform: none; }
+    }
+
     /* --- Landscape phones: reduce heights --- */
     @media (max-height: 500px) and (orientation: landscape) {
-      .hook-wrapper { height: 200vh; }
-      .sticky-quote-wrapper { height: 200vh; }
+      .hook-wrapper { height: 150vh; }
+      .sticky-quote-wrapper { height: 160vh; }
       .hook-emoji { font-size: 2.5rem; margin-bottom: 0.75rem; }
       .hook h1 { font-size: 1.3rem; }
       .hook-sub { margin-top: 0.75rem; font-size: 0.95rem; }
@@ -815,14 +844,17 @@
 <!-- ===== STICKY QUOTE TRANSITION (Text stays, BG changes) ===== -->
 <div class="sticky-quote-wrapper" id="stickyQuoteWrapper">
   <div class="sticky-quote">
-    <div class="quote-phase quote-phase-1 active" id="quotePhase1">
+    <div class="quote-phase quote-phase-1" id="quotePhase1" style="opacity:1;pointer-events:auto">
       <h2>Stell dir vor, du müsstest<br>bei jedem Essen erklären,<br>warum du nicht sterben willst.</h2>
     </div>
     <div class="quote-phase quote-phase-2" id="quotePhase2">
       <h2>Es geht nicht ums Essen.<br>Es geht um <span class="highlight">Leichtigkeit</span>,<br>die fehlt.</h2>
     </div>
     <div class="quote-phase quote-phase-3" id="quotePhase3">
-      <h2 style="color: rgba(254, 250, 246, 0.5); font-weight: 300; font-family: var(--font-body); font-size: clamp(1rem, 2.5vw, 1.3rem);">Spontan sein. Dazugehören. Nicht erklären müssen.<br>Das ist es, was Zöliakie wirklich nimmt.</h2>
+      <div class="phase3-line phase3-line-1">Spontan sein.</div>
+      <div class="phase3-line phase3-line-2"><span class="highlight">Dazugehören.</span></div>
+      <div class="phase3-line phase3-line-3">Nicht erklären müssen.</div>
+      <p class="phase3-sub">Das ist es, was Zöliakie wirklich nimmt.</p>
     </div>
   </div>
 </div>
@@ -1025,7 +1057,7 @@
       }
 
       // Phase 2 text appears
-      if (progress > 0.35) {
+      if (progress > 0.2) {
         hookPhase2.classList.add('active');
       } else {
         hookPhase2.classList.remove('active');
@@ -1041,10 +1073,24 @@
     if (quoteRect.top < window.innerHeight && quoteRect.bottom > 0) {
       const progress = Math.min(Math.max(-quoteRect.top / (quoteH - window.innerHeight), 0), 1);
 
-      // Three phases at 0-33%, 33-66%, 66-100%
-      quotePhase1.classList.toggle('active', progress < 0.33);
-      quotePhase2.classList.toggle('active', progress >= 0.33 && progress < 0.66);
-      quotePhase3.classList.toggle('active', progress >= 0.66);
+      // Smooth crossfade: overlapping opacity zones instead of binary toggle
+      const p1 = progress < 0.25 ? 1 : progress < 0.38 ? 1 - (progress - 0.25) / 0.13 : 0;
+      const p2 = progress < 0.30 ? 0 : progress < 0.43 ? (progress - 0.30) / 0.13
+               : progress < 0.62 ? 1 : progress < 0.72 ? 1 - (progress - 0.62) / 0.10 : 0;
+      const p3 = progress < 0.67 ? 0 : progress < 0.78 ? (progress - 0.67) / 0.11 : 1;
+
+      quotePhase1.style.opacity = p1;
+      quotePhase2.style.opacity = p2;
+      quotePhase3.style.opacity = p3;
+      [quotePhase1, quotePhase2, quotePhase3].forEach((el, i) => {
+        el.style.pointerEvents = [p1, p2, p3][i] > 0.05 ? 'auto' : 'none';
+      });
+
+      // Trigger phase 3 staggered animation
+      if (p3 > 0.1 && !quotePhase3.dataset.animated) {
+        quotePhase3.dataset.animated = 'true';
+        quotePhase3.querySelectorAll('.phase3-line, .phase3-sub').forEach(el => el.classList.add('visible'));
+      }
     }
   }
 
