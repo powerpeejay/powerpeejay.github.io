@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Zöliakie verstehen</title>
+  <meta name="theme-color" content="#2D2A26">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="In 2 Minuten verstehen, was Zöliakie wirklich bedeutet. Für alle, die jemanden kennen, der betroffen ist.">
+  <meta property="og:title" content="Zöliakie verstehen — in 2 Minuten">
+  <meta property="og:description" content="Was Zöliakie wirklich bedeutet. Für Freunde, Familie, Kollegen.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --warm-white: #FEFAF6;
+      --cream: #F5EDE3;
+      --amber: #D4763C;
+      --amber-light: #E8944F;
+      --amber-glow: rgba(212, 118, 60, 0.15);
+      --near-black: #2D2A26;
+      --dark-brown: #4A4440;
+      --mid-gray: #8A8480;
+      --light-border: rgba(45, 42, 38, 0.08);
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      /* Safe area insets for iPhone notch/home indicator */
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--near-black);
+      background: var(--warm-white);
+      line-height: 1.7;
+      overflow-x: hidden;
+      /* Prevent iOS rubber-band showing white flash */
+      background-color: var(--near-black);
+    }
+
+    /* --- Scroll Progress Bar --- */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--amber-light));
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s ease-out;
+    }
+
+    /* --- Section Base --- */
+    section {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      padding-left: calc(2rem + var(--safe-left));
+      padding-right: calc(2rem + var(--safe-right));
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    /* --- Reveal Animation --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+    .reveal-delay-4 { transition-delay: 0.6s; }
+
+    /* ================================
+       LAYER 0: HOOK — STICKY PARALLAX
+       ================================ */
+    .hook-wrapper {
+      position: relative;
+      height: 250vh;
+    }
+
+    .hook {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--near-black);
+      color: var(--warm-white);
+      text-align: center;
+      overflow: hidden;
+      padding-top: var(--safe-top);
+    }
+
+    .hook-bg-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hook-bg-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(212, 118, 60, 0.12) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      will-change: transform;
+      transition: transform 0.05s linear;
+    }
+
+    .hook-bg-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 118, 60, 0.06);
+      transform: translate(-50%, -50%);
+      will-change: transform;
+      transition: transform 0.05s linear;
+    }
+
+    .hook-bg-ring-2 {
+      width: 1100px;
+      height: 1100px;
+      border-color: rgba(212, 118, 60, 0.03);
+    }
+
+    .hook-scene {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hook-emoji {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      display: block;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hook h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .hook h1 .highlight {
+      color: var(--amber);
+      font-style: italic;
+    }
+
+    .hook-sub {
+      font-size: 1.15rem;
+      color: rgba(254, 250, 246, 0.5);
+      font-weight: 300;
+      margin-top: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hook-phase-2 {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      margin-top: 2rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: rgba(254, 250, 246, 0.35);
+      letter-spacing: 0.05em;
+    }
+
+    .hook-phase-2.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: calc(2.5rem + var(--safe-bottom));
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(254, 250, 246, 0.3);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: fade-bounce 2.5s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .scroll-hint svg {
+      width: 20px;
+      height: 20px;
+      stroke: rgba(254, 250, 246, 0.3);
+    }
+
+    @keyframes fade-bounce {
+      0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 0.7; transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ================================
+       LAYER 1: DAS WICHTIGSTE — STICKY CARDS
+       ================================ */
+    .layer-1 {
+      background: var(--warm-white);
+      min-height: auto;
+      padding: 6rem 2rem;
+    }
+
+    .layer-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.5rem;
+    }
+
+    .layer-1 h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 2.5rem;
+    }
+
+    .fact-card {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--light-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fact-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--amber);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .fact-card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .fact-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .fact-card p {
+      font-size: 0.95rem;
+      color: var(--dark-brown);
+      line-height: 1.65;
+    }
+
+    /* --- Counter Animation Stats --- */
+    .stat-counter {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      color: var(--amber);
+      display: block;
+      margin-top: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .stat-counter .counter-value {
+      display: inline-block;
+      min-width: 1.5ch;
+      text-align: right;
+    }
+
+    .stat-counter .counter-unit {
+      font-size: 1.4rem;
+      color: var(--amber-light);
+      margin-left: 0.25rem;
+    }
+
+    .stat-sub {
+      margin-top: 0.25rem;
+      font-size: 0.85rem;
+      color: var(--mid-gray);
+    }
+
+    /* ================================
+       STICKY QUOTE SECTION
+       ================================ */
+    .sticky-quote-wrapper {
+      position: relative;
+      height: 300vh;
+      background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 30%, var(--near-black) 60%, var(--near-black) 100%);
+    }
+
+    .sticky-quote {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      padding-left: calc(2rem + var(--safe-left));
+      padding-right: calc(2rem + var(--safe-right));
+    }
+
+    .sticky-quote-inner {
+      max-width: 640px;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .quote-phase {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 640px;
+      padding: 0 2rem;
+      opacity: 0;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      pointer-events: none;
+    }
+
+    .quote-phase.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .quote-phase h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 4vw, 2.4rem);
+      line-height: 1.4;
+    }
+
+    .quote-phase-1 h2 {
+      color: var(--near-black);
+    }
+
+    .quote-phase-2 h2 {
+      color: var(--warm-white);
+    }
+
+    .quote-phase-2 h2 .highlight {
+      color: var(--amber);
+      font-style: italic;
+    }
+
+    .quote-phase-3 {
+      color: rgba(254, 250, 246, 0.5);
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    /* ================================
+       LAYER 2: DIE UNSICHTBAREN REGELN
+       ================================ */
+    .layer-2 {
+      background: var(--cream);
+    }
+
+    .layer-2 h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .layer-2-intro {
+      font-size: 1.05rem;
+      color: var(--dark-brown);
+      margin-bottom: 2.5rem;
+      max-width: 560px;
+    }
+
+    .rule-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .rule-item {
+      background: var(--warm-white);
+      border-radius: 14px;
+      padding: 1.75rem;
+      border: 1px solid var(--light-border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    @media (hover: hover) {
+      .rule-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(45, 42, 38, 0.06);
+      }
+    }
+    .rule-item:active {
+      transform: scale(0.99);
+      transition-duration: 0.1s;
+    }
+
+    .rule-item-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .rule-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .rule-item h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .rule-item p {
+      font-size: 0.9rem;
+      color: var(--dark-brown);
+      line-height: 1.65;
+    }
+
+    .rule-item .gotcha {
+      margin-top: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: var(--amber-glow);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--near-black);
+      font-weight: 500;
+    }
+
+    /* ================================
+       CTA / SHARE SECTION
+       ================================ */
+    .share-section {
+      background: var(--warm-white);
+      text-align: center;
+      min-height: 50vh;
+      min-height: 50dvh;
+    }
+
+    .share-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .share-section p {
+      font-size: 1rem;
+      color: var(--dark-brown);
+      margin-bottom: 2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      min-height: 48px; /* iOS minimum touch target */
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .share-btn:active {
+      transform: scale(0.97);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .share-btn-primary {
+      background: var(--amber);
+      color: white;
+    }
+
+    .share-btn-secondary {
+      background: var(--cream);
+      color: var(--near-black);
+      border: 1px solid var(--light-border);
+    }
+
+    .share-btn-whatsapp {
+      background: #25D366;
+      color: white;
+    }
+
+    /* ================================
+       COMING SOON: DEEPER LAYERS
+       ================================ */
+    .deeper {
+      background: var(--cream);
+      text-align: center;
+      min-height: 40vh;
+      min-height: 40dvh;
+      padding: 3rem 2rem;
+      padding-bottom: calc(3rem + var(--safe-bottom));
+    }
+
+    .deeper h2 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .deeper p {
+      color: var(--mid-gray);
+      font-size: 0.95rem;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .coming-soon-badges {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .badge {
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: var(--warm-white);
+      color: var(--dark-brown);
+      border: 1px solid var(--light-border);
+    }
+
+    /* ================================
+       FOOTER
+       ================================ */
+    footer {
+      padding: 2rem 2rem calc(1.5rem + var(--safe-bottom));
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--mid-gray);
+      background: var(--warm-white);
+    }
+
+    footer a {
+      color: var(--amber);
+      text-decoration: none;
+    }
+
+    /* ================================
+       RESPONSIVE — Mobile First
+       ================================ */
+
+    /* --- Reduced motion: disable all animations --- */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hook-emoji { animation: none; }
+      .scroll-hint { animation: none; }
+      .hook-bg-glow, .hook-bg-ring { transition: none; }
+      .quote-phase { transition: none; }
+    }
+
+    /* --- iPhone SE / small phones (≤375px) --- */
+    @media (max-width: 375px) {
+      html { font-size: 14px; }
+      .hook h1 { font-size: 1.45rem; }
+      .hook-sub { font-size: 1rem; }
+      .hook-emoji { font-size: 3rem; margin-bottom: 1rem; }
+      section { padding: 2.5rem 1rem; }
+      .layer-1 { padding: 2.5rem 1rem; }
+      .fact-card { padding: 1.25rem; }
+      .fact-card h3 { font-size: 1.05rem; }
+      .fact-card p { font-size: 0.88rem; }
+      .stat-counter { font-size: 2rem; }
+      .stat-counter .counter-unit { font-size: 1.1rem; }
+      .rule-item { padding: 1.25rem; }
+      .rule-item h3 { font-size: 1rem; }
+      .rule-item p { font-size: 0.85rem; }
+      .rule-item .gotcha { font-size: 0.8rem; padding: 0.6rem 0.8rem; }
+      .quote-phase h2 { font-size: 1.15rem; }
+      .share-section h2 { font-size: 1.25rem; }
+      .share-buttons { flex-direction: column; align-items: stretch; }
+      .share-btn { justify-content: center; width: 100%; }
+      .deeper h2 { font-size: 1.3rem; }
+      .coming-soon-badges { flex-direction: column; align-items: center; }
+      .badge { width: 100%; text-align: center; }
+      .layer-label { font-size: 0.65rem; }
+      .hook-bg-glow { width: 350px; height: 350px; }
+      .hook-bg-ring { width: 500px; height: 500px; }
+      .hook-bg-ring-2 { width: 700px; height: 700px; }
+    }
+
+    /* --- Standard iPhone (376px–430px) --- */
+    @media (min-width: 376px) and (max-width: 430px) {
+      section { padding: 3rem 1.25rem; }
+      .layer-1 { padding: 3rem 1.25rem; }
+      .hook h1 { font-size: 1.6rem; }
+      .fact-card { padding: 1.5rem; }
+      .rule-item { padding: 1.5rem; }
+      .stat-counter { font-size: 2.4rem; }
+      .share-buttons { flex-direction: column; align-items: stretch; }
+      .share-btn { justify-content: center; width: 100%; }
+      .hook-bg-glow { width: 400px; height: 400px; }
+      .hook-bg-ring { width: 600px; height: 600px; }
+      .hook-bg-ring-2 { width: 850px; height: 850px; }
+    }
+
+    /* --- All phones: stack share buttons, full-width cards --- */
+    @media (max-width: 430px) {
+      .share-buttons { gap: 0.6rem; }
+      .layer-2-intro { font-size: 0.95rem; }
+      .hook-phase-2 { font-size: 0.8rem; }
+      .sticky-quote-wrapper { height: 250vh; }
+      .quote-phase { padding: 0 1.25rem; }
+      footer { padding: 2rem 1.25rem calc(1.5rem + var(--safe-bottom)); }
+    }
+
+    /* --- Tablets / iPad Mini (431px–767px) --- */
+    @media (min-width: 431px) and (max-width: 767px) {
+      section { padding: 4rem 2rem; }
+      .layer-1 { padding: 4rem 2rem; }
+      .share-buttons { flex-direction: row; flex-wrap: wrap; }
+    }
+
+    /* --- Tablet+ (≥640px): 2-col rule grid --- */
+    @media (min-width: 640px) {
+      .rule-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* --- Desktop (≥768px) --- */
+    @media (min-width: 768px) {
+      section { padding: 6rem 3rem; }
+      .layer-1 { padding: 6rem 3rem; }
+      .deeper { padding: 4rem 3rem; }
+    }
+
+    /* --- Large desktop (≥1024px) --- */
+    @media (min-width: 1024px) {
+      section { padding: 8rem 4rem; }
+      .layer-1 { padding: 8rem 4rem; }
+    }
+
+    /* --- Landscape phones: reduce heights --- */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hook-wrapper { height: 200vh; }
+      .sticky-quote-wrapper { height: 200vh; }
+      .hook-emoji { font-size: 2.5rem; margin-bottom: 0.75rem; }
+      .hook h1 { font-size: 1.3rem; }
+      .hook-sub { margin-top: 0.75rem; font-size: 0.95rem; }
+      section { min-height: auto; padding: 2rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ===== LAYER 0: HOOK (Sticky + Parallax Depth) ===== -->
+<div class="hook-wrapper" id="hookWrapper">
+  <section class="hook" id="hookSection">
+    <div class="hook-bg-layer">
+      <div class="hook-bg-glow" id="bgGlow"></div>
+      <div class="hook-bg-ring" id="bgRing1"></div>
+      <div class="hook-bg-ring hook-bg-ring-2" id="bgRing2"></div>
+    </div>
+    <div class="hook-scene">
+      <span class="hook-emoji reveal">🍦</span>
+      <h1 class="reveal reveal-delay-1">
+        Du bestellst Spaghetti-Eis.<br>
+        <span class="highlight">Ohne Waffel.</span><br>
+        Der Kellner zieht sie raus.
+      </h1>
+      <p class="hook-sub reveal reveal-delay-2">Das reicht leider nicht.</p>
+      <p class="hook-phase-2" id="hookPhase2">Willkommen in unserem Alltag.</p>
+    </div>
+    <div class="scroll-hint" id="scrollHint">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
+</div>
+
+<!-- ===== LAYER 1: DAS WICHTIGSTE (Counter Animations) ===== -->
+<section class="layer-1">
+  <div class="section-inner">
+    <div class="layer-label reveal">Das Wichtigste in 60 Sekunden</div>
+    <h2 class="reveal reveal-delay-1">Zöliakie ist kein Trend.<br>Keine Allergie. Kein Lifestyle.</h2>
+
+    <div class="fact-card reveal reveal-delay-2">
+      <span class="fact-card-icon">⚔️</span>
+      <h3>Was es wirklich ist</h3>
+      <p>Eine Autoimmunerkrankung. Das Immunsystem greift den eigenen Dünndarm an — ausgelöst durch Gluten. Jedes Mal. Ein Leben lang. Es gibt keine Heilung, nur Vermeidung.</p>
+    </div>
+
+    <div class="fact-card reveal reveal-delay-3">
+      <span class="fact-card-icon">🔬</span>
+      <h3>Wie wenig reicht</h3>
+      <p>Ein Krümel. Mehlstaub in der Luft. Dasselbe Schneidebrett. Die Grenze liegt bei 20 ppm — das sind 20 Milligramm pro Kilo. Ein unsichtbarer Hauch.</p>
+      <span class="stat-counter">
+        <span class="counter-value" data-target="20" data-duration="1500">0</span>
+        <span class="counter-unit">ppm</span>
+      </span>
+      <p class="stat-sub">So wenig reicht, um den Darm zu schädigen.</p>
+    </div>
+
+    <div class="fact-card reveal reveal-delay-4">
+      <span class="fact-card-icon">😶‍🌫️</span>
+      <h3>Was dann passiert</h3>
+      <p>Nicht nur Bauchschmerzen. Erschöpfung, Gehirnnebel, Gelenkschmerzen — tagelang. Bei Kindern: Wachstumsstörungen, Konzentrationsprobleme, Stimmungsschwankungen. Und das Schlimmste: Man sieht es nicht.</p>
+    </div>
+
+    <div class="fact-card reveal">
+      <span class="fact-card-icon">🔍</span>
+      <h3>Warum es so lange dauert</h3>
+      <p>Die Symptome sind so vielfältig, dass die meisten Ärzte es nicht sofort erkennen.</p>
+      <span class="stat-counter">
+        <span>Ø </span>
+        <span class="counter-value" data-target="8" data-duration="2000">0</span>
+        <span class="counter-unit">Jahre</span>
+      </span>
+      <p class="stat-sub">von ersten Symptomen bis zur Diagnose.</p>
+      <span class="stat-counter" style="font-size: 2rem; margin-top: 0.5rem;">
+        <span class="counter-value" data-target="83" data-duration="2500">0</span>
+        <span class="counter-unit">%</span>
+      </span>
+      <p class="stat-sub">werden zunächst fehldiagnostiziert.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STICKY QUOTE TRANSITION (Text stays, BG changes) ===== -->
+<div class="sticky-quote-wrapper" id="stickyQuoteWrapper">
+  <div class="sticky-quote">
+    <div class="quote-phase quote-phase-1 active" id="quotePhase1">
+      <h2>Stell dir vor, du müsstest<br>bei jedem Essen erklären,<br>warum du nicht sterben willst.</h2>
+    </div>
+    <div class="quote-phase quote-phase-2" id="quotePhase2">
+      <h2>Es geht nicht ums Essen.<br>Es geht um <span class="highlight">Leichtigkeit</span>,<br>die fehlt.</h2>
+    </div>
+    <div class="quote-phase quote-phase-3" id="quotePhase3">
+      <h2 style="color: rgba(254, 250, 246, 0.5); font-weight: 300; font-family: var(--font-body); font-size: clamp(1rem, 2.5vw, 1.3rem);">Spontan sein. Dazugehören. Nicht erklären müssen.<br>Das ist es, was Zöliakie wirklich nimmt.</h2>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LAYER 2: DIE UNSICHTBAREN REGELN ===== -->
+<section class="layer-2">
+  <div class="section-inner">
+    <div class="layer-label reveal">Die unsichtbaren Regeln</div>
+    <h2 class="reveal reveal-delay-1">Dinge, die fast niemand weiß</h2>
+    <p class="layer-2-intro reveal reveal-delay-2">Die meisten Menschen meinen es gut. Aber Zöliakie hat Regeln, die man nur kennt, wenn man sie lebt.</p>
+
+    <div class="rule-grid">
+      <div class="rule-item reveal">
+        <div class="rule-item-header">
+          <span class="rule-icon">🍞</span>
+          <h3>Gleicher Toaster = kontaminiert</h3>
+        </div>
+        <p>Schon ein normales Brot im selben Toaster reicht. Gleiche Pfanne, gleicher Löffel, gleiches Sieb — alles muss getrennt sein.</p>
+        <div class="gotcha">💡 Waffel aus dem Eis ziehen? Zu spät. Schon kontaminiert.</div>
+      </div>
+
+      <div class="rule-item reveal reveal-delay-1">
+        <div class="rule-item-header">
+          <span class="rule-icon">🥢</span>
+          <h3>Sojasauce enthält Weizen</h3>
+        </div>
+        <p>Klingt unglaublich, ist aber so. Auch Pommes (gemeinsame Fritteuse), viele Gewürzmischungen und sogar manche Medikamente enthalten verstecktes Gluten.</p>
+        <div class="gotcha">💡 Sogar Lippenstifte und Zahnpasta können Gluten enthalten.</div>
+      </div>
+
+      <div class="rule-item reveal reveal-delay-2">
+        <div class="rule-item-header">
+          <span class="rule-icon">🍽️</span>
+          <h3>"Glutenfrei" im Restaurant?</h3>
+        </div>
+        <p>Oft gut gemeint, selten sicher. Wenn Pasta im selben Wasser gekocht wird oder dasselbe Öl verwendet wird — ist es nicht glutenfrei. Egal was die Karte sagt.</p>
+        <div class="gotcha">💡 Lifestyle-"glutenfrei" ≠ medizinisch glutenfrei. Für Zöllis ist die Grenze absolut.</div>
+      </div>
+
+      <div class="rule-item reveal reveal-delay-3">
+        <div class="rule-item-header">
+          <span class="rule-icon">🎂</span>
+          <h3>Kindergeburtstage</h3>
+        </div>
+        <p>Jede Einladung bedeutet: Anrufen, erklären, eigenes Essen mitgeben, hoffen dass nichts schiefgeht. Für das Kind bedeutet es: Anders sein. Wieder.</p>
+        <div class="gotcha">💡 Schon ein geteilter Kuchenheber kann zum Problem werden.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHARE CTA ===== -->
+<section class="share-section">
+  <div class="section-inner">
+    <h2 class="reveal">Jetzt verstehst du es.<br>Hilf anderen, es auch zu verstehen.</h2>
+    <p class="reveal reveal-delay-1">Schick diesen Link an jemanden, der es wissen sollte — Freunde, Familie, Lehrer, Kollegen.</p>
+    <div class="share-buttons reveal reveal-delay-2">
+      <button class="share-btn share-btn-whatsapp" onclick="shareWhatsApp()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </button>
+      <button class="share-btn share-btn-primary" onclick="shareLink()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        Teilen
+      </button>
+      <button class="share-btn share-btn-secondary" onclick="copyLink()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        <span id="copyText">Link kopieren</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEEPER LAYERS (TEASER) ===== -->
+<section class="deeper">
+  <div class="section-inner">
+    <h2 class="reveal">Mehr erfahren?</h2>
+    <p class="reveal reveal-delay-1">Diese Story geht tiefer — für alle, die mehr verstehen wollen.</p>
+    <div class="coming-soon-badges reveal reveal-delay-2">
+      <span class="badge">🛒 Der Alltag mit Zöliakie</span>
+      <span class="badge">✅ Was du konkret tun kannst</span>
+      <span class="badge">🆕 Gerade Diagnose bekommen?</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Mit Liebe gemacht von einer Familie, die es jeden Tag lebt.</p>
+  <p style="margin-top: 0.5rem;">Medizinische Informationen ersetzen keine ärztliche Beratung. <a href="https://www.dzg-online.de" target="_blank" rel="noopener">DZG</a></p>
+</footer>
+
+<script>
+  // =============================================
+  // SCROLL PROGRESS BAR
+  // =============================================
+  const progressBar = document.getElementById('progressBar');
+
+  // =============================================
+  // REVEAL ON SCROLL (IntersectionObserver)
+  // =============================================
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // =============================================
+  // COUNTER ANIMATION
+  // =============================================
+  const counters = document.querySelectorAll('.counter-value');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = 'true';
+        animateCounter(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObserver.observe(c));
+
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const duration = parseInt(el.dataset.duration) || 1500;
+    const start = performance.now();
+
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // =============================================
+  // HOOK: STICKY PARALLAX DEPTH
+  // =============================================
+  const hookWrapper = document.getElementById('hookWrapper');
+  const bgGlow = document.getElementById('bgGlow');
+  const bgRing1 = document.getElementById('bgRing1');
+  const bgRing2 = document.getElementById('bgRing2');
+  const hookPhase2 = document.getElementById('hookPhase2');
+  const scrollHint = document.getElementById('scrollHint');
+
+  // =============================================
+  // STICKY QUOTE: THREE PHASES
+  // =============================================
+  const stickyQuoteWrapper = document.getElementById('stickyQuoteWrapper');
+  const quotePhase1 = document.getElementById('quotePhase1');
+  const quotePhase2 = document.getElementById('quotePhase2');
+  const quotePhase3 = document.getElementById('quotePhase3');
+
+  // =============================================
+  // DEVICE DETECTION & PARALLAX SCALING
+  // =============================================
+  const isMobile = window.matchMedia('(max-width: 430px)').matches;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Softer parallax on mobile for smoother scrolling
+  const parallaxScale = isMobile ? 0.5 : 1;
+
+  // =============================================
+  // MAIN SCROLL HANDLER (rAF throttled)
+  // =============================================
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  function onScroll() {
+    ticking = false;
+    const scrollY = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    // Progress bar
+    progressBar.style.width = ((scrollY / docHeight) * 100) + '%';
+
+    // --- Hook parallax depth ---
+    const hookRect = hookWrapper.getBoundingClientRect();
+    const hookH = hookWrapper.offsetHeight;
+    if (hookRect.top < window.innerHeight && hookRect.bottom > 0) {
+      const progress = Math.min(Math.max(-hookRect.top / (hookH - window.innerHeight), 0), 1);
+
+      if (!prefersReducedMotion) {
+        // Parallax layers move at different speeds (reduced on mobile)
+        const glowY = progress * -80 * parallaxScale;
+        const ring1Y = progress * -40 * parallaxScale;
+        const ring2Y = progress * -20 * parallaxScale;
+        const glowScale = 1 + progress * 0.4 * parallaxScale;
+
+        bgGlow.style.transform = `translate(-50%, calc(-50% + ${glowY}px)) scale(${glowScale})`;
+        bgRing1.style.transform = `translate(-50%, calc(-50% + ${ring1Y}px))`;
+        bgRing2.style.transform = `translate(-50%, calc(-50% + ${ring2Y}px))`;
+      }
+
+      // Phase 2 text appears
+      if (progress > 0.35) {
+        hookPhase2.classList.add('active');
+      } else {
+        hookPhase2.classList.remove('active');
+      }
+
+      // Scroll hint fades out
+      scrollHint.style.opacity = Math.max(1 - progress * 3, 0);
+    }
+
+    // --- Sticky quote phases ---
+    const quoteRect = stickyQuoteWrapper.getBoundingClientRect();
+    const quoteH = stickyQuoteWrapper.offsetHeight;
+    if (quoteRect.top < window.innerHeight && quoteRect.bottom > 0) {
+      const progress = Math.min(Math.max(-quoteRect.top / (quoteH - window.innerHeight), 0), 1);
+
+      // Three phases at 0-33%, 33-66%, 66-100%
+      quotePhase1.classList.toggle('active', progress < 0.33);
+      quotePhase2.classList.toggle('active', progress >= 0.33 && progress < 0.66);
+      quotePhase3.classList.toggle('active', progress >= 0.66);
+    }
+  }
+
+  // =============================================
+  // SHARE / COPY
+  // =============================================
+  function shareWhatsApp() {
+    const text = 'Lies das — es erklärt in 2 Minuten, was Zöliakie wirklich bedeutet: ' + window.location.href;
+    window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
+  }
+
+  function shareLink() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Zöliakie verstehen',
+        text: 'Lies das — es erklärt in 2 Minuten, was Zöliakie wirklich bedeutet.',
+        url: window.location.href
+      }).catch(() => {});
+    } else {
+      copyLink();
+    }
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const el = document.getElementById('copyText');
+      el.textContent = 'Kopiert! ✓';
+      setTimeout(() => { el.textContent = 'Link kopieren'; }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
